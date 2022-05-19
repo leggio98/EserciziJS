@@ -1,6 +1,6 @@
 function greet(greeting) {
   return (person) => {
-    return `${greeting}, ${person}`;
+    return greeting + ", " + person;
   }
 }
 
