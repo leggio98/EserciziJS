@@ -6,7 +6,7 @@ const person1 = {
 
 const person2 = person1;
 
-person1.firstName = `Simon`; 
+person1.firstName = 'Simon'; 
 
 // Modifica la proprietà "firstName" di person2 in "Simon"
 
