@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const firstName  = document.getElementsByClassName("form-input");
+  console.log(firstName);
+  console.log(firstName[0].value);
+  const firstNameAgain = document.querySelector(".form-input");
+  console.log(firstNameAgain);
+  console.log(firstNameAgain.value);
+</script>
+
+<!-- Nel primo caso ottengo inizialmente la classe per intero
+,poi il valore Mario del primo label. Nel secondo caso invece ottengo
+come primo log tutto il label, poi sempre Mario.
+Non so bene quale sia meglio usare, ma credo siano proprio
+per due possibili situazioni diverse-->
