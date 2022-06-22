@@ -179,6 +179,13 @@ const printCart = () => {
     let sushi = [];
     let bevande = [];
     let dolci = [];
+    pizze.name = "PIZZE";
+    panini.name = "PANINI";
+    sushi.name = "SUSHI";
+    bevande.name = "BEVANDE";
+    dolci.name ="DESSERTS";
+    let bigArray = [pizze, panini, sushi, bevande, dolci]
+    
 
     productsInCart.filter(product => {
       if (product.category == 0) pizze.push(product);
@@ -189,7 +196,21 @@ const printCart = () => {
 
     })
 
-    if(pizze.length != 0) {
+    bigArray.forEach(newArray => {
+      if (newArray.length != 0) {
+        console.log(`*** ${newArray.name} ***` );
+        
+        newArray.forEach(product => {
+          if (newArray = bevande) {
+            return console.log(`- ${product.quantity} x ${product.title} | $${product.price}`);
+          }
+          return  console.log(`- ${product.quantity} x ${product.title} (${product.description}) | $${product.price}`);
+        })
+        console.log("");
+      }
+    })
+
+  /*  if(pizze.length != 0) {
       console.log("*** PIZZE ***");
       pizze.forEach(product => {
         return  console.log(`- ${product.quantity} x ${product.title} (${product.description}) | $${product.price}`);
@@ -228,11 +249,11 @@ const printCart = () => {
       })
       console.log("")
     }
+    */
 
     const totale = getTotalAmount();
       console.log("*** TOTALE ***");
       console.log(`${totale}€`);
-
 }
 
 /*
