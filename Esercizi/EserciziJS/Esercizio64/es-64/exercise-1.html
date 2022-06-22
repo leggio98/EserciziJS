@@ -1,31 +1,39 @@
 <html>
   <body>
     <div id="container">
-      <button type="button" id="fetch-post">Fetch Post</button>
+     <!-- <button type="button" id="fetch-post">Fetch Post</button> -->
       <button type="button" id="save-post">Save Post on LocalStorage</button>
     </div>
   </body>
 </html>
 
 <script>
-const fetchButton = document.getElementById('fetch-post');
+// const fetchButton = document.getElementById('fetch-post');
 const saveButton = document.getElementById('save-post');
 console.log(saveButton);
-console.log(fetchButton);
+// console.log(fetchButton);
 
 
 async function myFetch() {
   const fetchJson = await fetch('https://jsonplaceholder.typicode.com/posts/1');
   const post = await fetchJson.json();
+  console.log(post);
   return post;
 }
 
- function mySave() {
-  localStorage.setItem("post", JSON.stringify(myFetch()));
+ async function mySave() {
+  const data = JSON.stringify(await myFetch())
+  localStorage.setItem("post", data);
 }
 
-fetchButton.addEventListener("click", myFetch);
-saveButton.addEventListener("click", mySave);
+// fetchButton.addEventListener("click", myFetch);
+saveButton.addEventListener("click", async () => {
+  try {
+    return await mySave()
+  } catch(err) {
+    throw err
+  }
+});
 </script>
 
 <!-- Assolutamente da rivedere, nelle lezioni
